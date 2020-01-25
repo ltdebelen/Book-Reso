@@ -1,32 +1,4 @@
 $(document).ready(function() {
-  const books = [
-    {
-      title: "Becoming",
-      author: "Michelle Obama",
-      category: "mindset"
-    },
-    {
-      title: "Rich Dad Poor Dad",
-      author: "Robert Kiyosaki",
-      category: "finance"
-    },
-    {
-      title: "Boundless",
-      author: "Ben Greenfield",
-      category: "fitness"
-    },
-    {
-      title: "The Alchemist",
-      author: "Paulo Coelho",
-      category: "travel"
-    },
-    {
-      title: "Make it stick",
-      author: "Peter Brown",
-      category: "learning"
-    }
-  ];
-
   books.forEach(book => {
     searchBook(book);
   });
@@ -61,37 +33,50 @@ $(document).ready(function() {
       const title = response.items[0].volumeInfo.title;
       const imgurl = response.items[0].volumeInfo.imageLinks.thumbnail;
       const category = book.category;
+      const preview = response.items[0].volumeInfo.previewLink;
+      const reviews = response.items[0].volumeInfo.infoLink;
 
-      createBookCard(title, imgurl, category);
+      createBookCard(title, imgurl, category, preview, reviews);
     });
   }
 
-  function createBookCard(title, imgurl, category) {
-    console.log(title);
-    console.log(imgurl);
+  // Isotope Book Filter Function
+  let $grid = $(".book-menu-items").isotope({
+    itemSelector: ".book-item",
+    layoutMode: "fitRows"
+  });
+  $(".book-menu a").click(function() {
+    let selector = $(this).attr("data-filter");
+    $(".book-menu-items").isotope({
+      filter: selector
+    });
+    return false;
+  });
+
+  function createBookCard(title, imgurl, category, preview, reviews) {
     let bookCardHTML = `
     <div class="column book-item ${category}">
       <div class="card">
         <header class="card-header">
-          <p class="has-text-centered card-header-title">
-            ${title}
+          <p class="card-header-title">
+           ${title}
           </p>
         </header>
         <div class="card-content">
-          <div class="content">
+          <div class="content has-text-centered">
             <img src="${imgurl}" alt="${title}" class="book-image">
           </div>
         </div>
         <footer class="card-footer">
-          <a href="#" class="card-footer-item">Save</a>
-          <a href="#" class="card-footer-item">Edit</a>
-          <a href="#" class="card-footer-item">Delete</a>
+          <a href="${preview}" class="card-footer-item" target="_blank">Preview</a>
+          <a href="${reviews}" class="card-footer-item" target="_blank">Reviews</a>
         </footer>
       </div>
     </div>
     `;
 
-    $(".book-menu-items .columns").append(bookCardHTML);
+    let $newItems = $(bookCardHTML);
+    $grid.append($newItems).isotope("appended", $newItems);
   }
 
   // Modal Function
@@ -128,16 +113,4 @@ $(document).ready(function() {
       });
     });
   }
-
-  // Isotope Book Filter Function
-  $(".book-menu-items").isotope({
-    itemSelector: ".book-item"
-  });
-  $(".book-menu a").click(function() {
-    let selector = $(this).attr("data-filter");
-    $(".book-menu-items").isotope({
-      filter: selector
-    });
-    return false;
-  });
 });
