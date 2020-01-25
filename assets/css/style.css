@@ -31,3 +31,12 @@ section#recommendations {
 .card-header-title {
   justify-content: center;
 }
+
+/* STORES */
+section#stores {
+  height: 100vh;
+}
+
+section#stores #store-img {
+  border: 5px solid black;
+}
