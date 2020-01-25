@@ -13,3 +13,8 @@ section#hero #overlay {
 .book-menu-items .book-item {
   width: 25%;
 }
+
+.book-menu-items .book-item .book-image {
+  height: 150px;
+  width: 100px;
+}
