@@ -79,6 +79,11 @@ $(document).ready(function() {
     $grid.append($newItems).isotope("appended", $newItems);
   }
 
+  // Smooth Scroll Function
+  const scroll = new SmoothScroll('.navbar a[href*="#"]', {
+    speed: 1000
+  });
+
   // Modal Function
   $(".modal-background, .modal-close").click(function() {
     $("html").removeClass("is-clipped");

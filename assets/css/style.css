@@ -3,13 +3,22 @@ section#hero {
   background-image: url(../images/hero.jpg);
   background-position: center;
   background-size: cover;
+  height: 100vh;
 }
 
 section#hero #overlay {
   background: rgba(0, 0, 0, 0.6);
 }
 
+section#hero #hero-text {
+  margin-top: 8rem;
+}
+
 /* RECOMMENDATIONS */
+section#recommendations {
+  height: 100vh;
+}
+
 .book-menu-items .book-item {
   width: 25%;
 }
