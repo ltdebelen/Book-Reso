@@ -17,6 +17,7 @@ section#hero #hero-text {
 /* RECOMMENDATIONS */
 section#recommendations {
   height: 100vh;
+  overflow: scroll;
 }
 
 .book-menu-items .book-item {
