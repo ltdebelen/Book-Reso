@@ -34,3 +34,15 @@ $(function() {
     });
   }
 });
+
+// Isotope Book Filter Function
+$(".book-menu-items").isotope({
+  itemSelector: ".book-item"
+});
+$(".book-menu a").click(function() {
+  let selector = $(this).attr("data-filter");
+  $(".book-menu-items").isotope({
+    filter: selector
+  });
+  return false;
+});

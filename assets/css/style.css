@@ -8,3 +8,8 @@ section#hero {
 section#hero #overlay {
   background: rgba(0, 0, 0, 0.6);
 }
+
+/* RECOMMENDATIONS */
+.book-menu-items .book-item {
+  width: 25%;
+}
