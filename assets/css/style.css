@@ -1,8 +1,9 @@
 /* HERO */
 section#hero {
   background-image: url(../images/hero.jpg);
-  background-position: center;
+  background-position: left left;
   background-size: cover;
+  background-attachment: fixed;
   height: 100vh;
 }
 
@@ -11,63 +12,54 @@ section#hero #overlay {
 }
 
 section#hero #hero-text {
-  margin-top: 8rem;
+  margin-top: 12rem;
 }
 
 /* RECOMMENDATIONS */
-section#recommendations {
-  height: 100vh;
-  overflow: scroll;
+
+section#recommendations .card:hover {
+  box-shadow: 0 0 0 1px #209cee;
 }
 
-.book-menu-items .book-item {
+section#recommendations .book-menu-items .book-item {
   width: 25%;
 }
 
-.book-menu-items .book-item .book-image {
+section#recommendations .book-menu-items .book-item .book-image {
   height: 150px;
   width: 100px;
 }
 
-.card-header-title {
+section#recommendations .card-header-title {
   justify-content: center;
 }
 
-/* STORES */
-section#stores {
-  height: 100vh;
+/* MEDIA QUERIES */
+
+/* TABLET */
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  section#recommendations {
+    padding: 9rem 1.5rem;
+  }
+
+  section#recommendations .book-menu-items .book-item {
+    width: 32%;
+  }
 }
 
-section#stores #store-img {
-  border: 5px solid black;
-}
+/* SMARTPHONES */
+@media screen and (max-width: 768px) {
+  section#recommendations {
+    padding: 9rem 1.5rem;
+  }
 
-/* TRACKER */
-.progress-wrapper {
-  position: relative;
-}
+  section#recommendations .book-menu-items .book-item {
+    width: 100%;
+  }
 
-.progress-value {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: calc(1rem / 1.5);
-  line-height: 1rem;
-  font-weight: bold;
-}
-
-.progress.is-small + .progress-value {
-  font-size: calc(0.75rem / 1.5);
-  line-height: 0.75rem;
-}
-
-.progress.is-medium + .progress-value {
-  font-size: calc(1.25rem / 1.5);
-  line-height: 1.25rem;
-}
-
-.progress.is-large + .progress-value {
-  font-size: calc(1.5rem / 1.5);
-  line-height: 1.5rem;
+  .button.is-info {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }
