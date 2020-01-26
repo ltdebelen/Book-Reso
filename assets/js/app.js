@@ -3,8 +3,52 @@ $(document).ready(function() {
     searchBook(book);
   });
 
+  const PROGRESS_MAX_VAL = 100;
+  let progressBarValue = 0;
+  let progressPercent = 0;
+  let accomplishedMonths = 0;
+  let totalWork = 0;
+
+  $("#progress-percent").text(progressPercent + "%");
+
+  $("button.btn-month").on("click", function() {
+    // Increase tracker progress
+    progressBarValue += 50;
+    $("#progress-bar").attr("value", progressBarValue);
+    // Increase Pecentage
+    accomplishedMonths += 1;
+    totalWork = accomplishedMonths * 50;
+    progressPercent = (totalWork / PROGRESS_MAX_VAL) * 100;
+    $("#progress-percent").text(progressPercent + "%");
+    // change css styling to btn success
+    console.log($(this));
+    $(this)
+      .removeClass("is-dark")
+      .addClass("is-success")
+      .attr("disabled", "disabled");
+  });
+
+  $("button.btn-reset").on("click", function() {
+    progressBarValue = 0;
+    progressPercent = 0;
+    accomplishedMonths = 0;
+    $("#progress-bar").attr("value", progressBarValue);
+    $("#progress-percent").text(progressPercent + "%");
+
+    // Find buttons that has successful class, then reset them
+    $("button.btn-month").each(function() {
+      if ($(this).hasClass("is-success") == true) {
+        $(this)
+          .removeClass("is-success")
+          .addClass("is-dark")
+          .removeAttr("disabled");
+      }
+    });
+  });
+
   function searchBook(book) {
     const API_KEY = "AIzaSyBXnJxhMnxkR9s56HdpqIoGb62ATyP3nDk";
+    const TEST_API_KEY_2 = "AIzaSyDCy4PLx7oGJvcBqXbThTXcaOZ6mBt0ChU";
     let base_url = "https://www.googleapis.com/books/v1/volumes?q=";
 
     let title = book.title;
@@ -23,21 +67,21 @@ $(document).ready(function() {
       "inauthor:" +
       authorParam +
       "&key=" +
-      API_KEY;
-    console.log(newURL);
+      TEST_API_KEY_2;
+    // console.log(newURL);
 
-    $.ajax({
-      url: newURL,
-      method: "GET"
-    }).then(function(response) {
-      const title = response.items[0].volumeInfo.title;
-      const imgurl = response.items[0].volumeInfo.imageLinks.thumbnail;
-      const category = book.category;
-      const preview = response.items[0].volumeInfo.previewLink;
-      const reviews = response.items[0].volumeInfo.infoLink;
+    // $.ajax({
+    //   url: newURL,
+    //   method: "GET"
+    // }).then(function(response) {
+    //   const title = response.items[0].volumeInfo.title;
+    //   const imgurl = response.items[0].volumeInfo.imageLinks.thumbnail;
+    //   const category = book.category;
+    //   const preview = response.items[0].volumeInfo.previewLink;
+    //   const reviews = response.items[0].volumeInfo.infoLink;
 
-      createBookCard(title, imgurl, category, preview, reviews);
-    });
+    //   createBookCard(title, imgurl, category, preview, reviews);
+    // });
   }
 
   // Isotope Book Filter Function
