@@ -1,7 +1,7 @@
 /* HERO */
 section#hero {
   background-image: url(../images/hero.jpg);
-  background-position: left left;
+  background-position: center;
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
@@ -9,10 +9,6 @@ section#hero {
 
 section#hero #overlay {
   background: rgba(0, 0, 0, 0.6);
-}
-
-section#hero #hero-text {
-  margin-top: 12rem;
 }
 
 /* RECOMMENDATIONS */
@@ -32,6 +28,12 @@ section#recommendations .book-menu-items .book-item .book-image {
 
 section#recommendations .card-header-title {
   justify-content: center;
+}
+
+/* MAP */
+section#search #map {
+  height: 500px;
+  width: 100%;
 }
 
 /* MEDIA QUERIES */
