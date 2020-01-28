@@ -25,7 +25,6 @@ $(document).ready(function() {
       authorParam +
       "&key=" +
       API_KEY;
-    console.log(newURL);
 
     $.ajax({
       url: newURL,
