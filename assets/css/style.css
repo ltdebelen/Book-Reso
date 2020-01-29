@@ -39,6 +39,39 @@ section#recommendations .card-header-title {
   justify-content: center;
 }
 
+/* PLANNER */
+
+.months {
+  display: none;
+}
+
+#bookHolder {
+  display: none;
+}
+
+option {
+  font-size: 24px;
+}
+
+#janReadIt {
+  display: none;
+}
+
+.input {
+  margin: 10px;
+  width: 50%;
+  text-align: center;
+}
+
+.bookButtons {
+  clear: right;
+  margin: 5px;
+}
+
+.bookDisp {
+  margin-top: 10px;
+}
+
 /* MAP */
 section#search #map {
   height: 300px;

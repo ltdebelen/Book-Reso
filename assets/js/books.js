@@ -4,6 +4,7 @@ const books = [
     author: "Angela Duckworth",
     category: "mindset"
   },
+
   {
     title: "The Power of Now",
     author: "Eckhart Tolle",
