@@ -11,6 +11,15 @@ section#hero #overlay {
   background: rgba(0, 0, 0, 0.6);
 }
 
+section#hero .title {
+  margin-bottom: 4rem;
+}
+
+/* ABOUT */
+section#about h2 {
+  line-height: 3rem;
+}
+
 /* RECOMMENDATIONS */
 
 section#recommendations .card:hover {
@@ -32,7 +41,7 @@ section#recommendations .card-header-title {
 
 /* MAP */
 section#search #map {
-  height: 500px;
+  height: 300px;
   width: 100%;
 }
 
