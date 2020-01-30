@@ -84,6 +84,14 @@ $(document).ready(function() {
     speed: 1000
   });
 
+  // Slick Carousel Function
+  $(".showcase").slick({
+    autoplay: true,
+    dots: true,
+    speed: 2000,
+    autoplaySpeed: 6000
+  });
+
   // Modal Function
   $(".modal-background, .modal-close").click(function() {
     $("html").removeClass("is-clipped");
