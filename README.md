@@ -33,4 +33,4 @@ A simple web application that helps users achieve their New Year's Resolution by
 * Use at least one new third-party API (Smooth Scroll, Slick Carousel, Isotopes)
 
 ## GitHub Hosted Link
-https://ltdebelen.github.io/Prototype-01/
+https://ltdebelen.github.io/Book-Reso/
